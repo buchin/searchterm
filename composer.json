@@ -1,0 +1,22 @@
+{
+    "name": "buchin/searchterm",
+    "description": "Detect search keywords if referer coming from search engine",
+    "type": "library",
+    "require-dev": {
+        "kahlan/kahlan": "^3.1"
+    },
+    "license": "Halal",
+    "authors": [
+        {
+            "name": "Mochammad Masbuchin",
+            "email": "buchin@dropsugar.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Buchin\\SearchTerm\\": "src/"
+        }
+    }
+}
