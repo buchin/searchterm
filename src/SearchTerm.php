@@ -18,7 +18,11 @@ class SearchTerm
 	public static function isCameFromSearchEngine($referer = null)
 	{
 		if(is_null($referer)){
-			$referer = $_SERVER['HTTP_REFERER'];
+			if(isset($_SERVER['HTTP_REFERER'])){
+				$referer = $_SERVER['HTTP_REFERER'];
+			}
+
+			$referer = '';
 		}
 
 		
