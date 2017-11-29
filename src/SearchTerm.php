@@ -7,7 +7,16 @@ class SearchTerm
 {
 	public static function get($referer = null)
 	{
+		if($host = self::isCameFromSearchEngine($referer)){
+			$delimiter = self::getDelimiter($host);
+			return self::getTerms($delimiter, $referer);
+		}
 
+		return false;
+	}
+
+	public static function isCameFromSearchEngine($referer)
+	{
 		if(is_null($referer)){
 			$referer = $_SERVER['HTTP_REFERER'];
 		}
@@ -29,7 +38,7 @@ class SearchTerm
 			return false;
 		}
 
-		return self::getTerms($delimiter, $referer);
+		return $host;
 	}
 
 	public static function getHost($referer) {	    

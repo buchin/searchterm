@@ -30,4 +30,32 @@ describe('SearchTerm', function(){
 			});
 		});
 	});
+
+	describe('isCameFromSearchEngine()', function(){
+		context('when referer is empty', function(){
+			it('return false', function(){
+				$result = SearchTerm::isCameFromSearchEngine('');
+
+				expect($result)->toBeFalsy();
+			});
+		});
+
+		context('when coming from non search engine', function(){
+			it('return false', function(){
+				$result = SearchTerm::isCameFromSearchEngine('http://www.zipzipan.com');
+
+				expect($result)->toBeFalsy();
+			});
+		});
+
+		context('when coming from search engine', function(){
+			it('return search term', function(){
+				$result = SearchTerm::isCameFromSearchEngine('https://www.google.co.id/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=makan%20nasi');
+				expect($result)->toBeTruthy();
+
+				$result = SearchTerm::isCameFromSearchEngine('https://www.bing.com/search?q=ketela+mambu&hl=en');
+				expect($result)->toBeTruthy();
+			});
+		});
+	});
 });
