@@ -27,6 +27,9 @@ describe('SearchTerm', function(){
 
 				$result = SearchTerm::get('https://www.bing.com/search?q=ketela+mambu&hl=en');
 				expect($result)->toBe('ketela mambu');
+
+				$result = SearchTerm::get('https://www.google.co.id/');
+				expect($result)->toBe('');
 			});
 		});
 	});
