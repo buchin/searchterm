@@ -56,7 +56,10 @@ class SearchTerm
 			return false;
 		}
 
-		if(self::str_contains($referer, '.google.') || self::str_contains($referer, '.bing.')){
+		if(self::str_contains($referer, '.google.') 
+			|| self::str_contains($referer, '.bing.')
+			|| self::str_contains($referer, 'yandex.')
+		){
 			return true;
 		}
 
